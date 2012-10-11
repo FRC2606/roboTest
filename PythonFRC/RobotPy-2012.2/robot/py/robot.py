@@ -1,8 +1,10 @@
 import wpilib
 
 lstick = wpilib.Joystick(1)
+rstick = wpilib.Joystick(2)
 
-motor = wpilib.Jaguar(2,8)
+lmotor = wpilib.Jaguar(1,4)
+rmotor = wpilib.Jaguar(1,1)
 
 def CheckRestart():
     if lstick.GetRawButton(10):
@@ -36,7 +38,8 @@ class MyRobot(wpilib.IterativeRobot):
         CheckRestart()
 
         # Motor control
-        motor.Set(lstick.GetY())
+        lmotor.Set(lstick.GetY())
+        rmotor.Set(rstick.GetY())
 
 def run():
     robot = MyRobot()
