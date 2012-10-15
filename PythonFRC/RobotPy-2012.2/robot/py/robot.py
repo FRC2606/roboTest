@@ -23,9 +23,9 @@ class MyRobot(wpilib.IterativeRobot):
         #rmotor.Set(-rstick.GetY())
         #left=lstick.GetY()
         #right=-rstick.GetY()
-        #lmotor.Set(left*math.fabs(left))
-        #rmotor.Set(right*math.fabs(right))
-        roboDR.ArcadeDrive(lstick.GetY(),lstick.GetX(),true)
+        lmotor.Set(left*math.fabs(left))
+        rmotor.Set(right*math.fabs(right))
+        #roboDR.ArcadeDrive(lstick.GetY(),lstick.GetX(),true)
 
     def DisabledPeriodic(self):
         CheckRestart()
