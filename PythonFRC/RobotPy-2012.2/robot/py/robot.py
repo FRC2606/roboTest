@@ -6,7 +6,6 @@ rstick = wpilib.Joystick(2)
 
 lmotor = wpilib.Jaguar(1,4)
 rmotor = wpilib.Jaguar(1,1)
-roboDR = wpilib.RobotDrive(lmotor,rmotor)
 
 def CheckRestart():
     if lstick.GetRawButton(10):
@@ -26,10 +25,9 @@ class MyRobot(wpilib.IterativeRobot):
         x=lstick.GetX();
         y=lstick.GetY();
         left=y-x
-        right=-x-y
+        right=-1*(y+x)
         lmotor.Set(left*math.fabs(left))
         rmotor.Set(right*math.fabs(right))
-        #roboDR.ArcadeDrive(lstick.GetY(),lstick.GetX(),true)
 
     def DisabledPeriodic(self):
         CheckRestart()
