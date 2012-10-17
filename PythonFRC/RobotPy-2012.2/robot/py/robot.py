@@ -26,8 +26,9 @@ class MyRobot(wpilib.IterativeRobot):
         y=lstick.GetY();
         left=y-x
         right=-1*(y+x)
-        lmotor.Set(left*math.fabs(left))
-        rmotor.Set(right*math.fabs(right))
+        cruise=(lstick.GetZ()-1)/2;
+        lmotor.Set(left*math.fabs(left)+cruise)
+        rmotor.Set(right*math.fabs(right)-cruise)
 
     def DisabledPeriodic(self):
         CheckRestart()
