@@ -4,8 +4,9 @@ import math
 lstick = wpilib.Joystick(1)
 rstick = wpilib.Joystick(2)
 
-lmotor = wpilib.Jaguar(1,4)
-rmotor = wpilib.Jaguar(1,1)
+lmotor = wpilib.Jaguar(1,3)
+rmotor = wpilib.Jaguar(1,2)
+# victors 1 and 4 are burnt
 
 def CheckRestart():
     if lstick.GetRawButton(10):
@@ -24,11 +25,11 @@ class MyRobot(wpilib.IterativeRobot):
         #right=-rstick.GetY()
         x=lstick.GetX();
         y=lstick.GetY();
-        left=y-x
-        right=-1*(y+x)
-        cruise=(lstick.GetZ()-1)/2;
-        lmotor.Set(left*math.fabs(left)+cruise)
-        rmotor.Set(right*math.fabs(right)-cruise)
+        left=x-y
+        right=x+y
+        #cruise=(lstick.GetZ()-1)/-2;
+        lmotor.Set((left*math.fabs(left)))
+        rmotor.Set(-1*(right*math.fabs(right)))
 
     def DisabledPeriodic(self):
         CheckRestart()
