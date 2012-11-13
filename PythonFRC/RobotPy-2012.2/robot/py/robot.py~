@@ -8,7 +8,6 @@ lmotor = wpilib.Jaguar(1,3)
 rmotor = wpilib.Jaguar(1,2)
 #roboDR = wpilib.RobotDrive(lmotor,rmotor)
 # victors 4 and 1 are burnt
-# test
 
 def CheckRestart():
     if lstick.GetRawButton(10):
