@@ -4,8 +4,10 @@ import math
 lstick = wpilib.Joystick(1)
 rstick = wpilib.Joystick(2)
 
+lmotor2 = wpilib.Jaguar(1,4)
 lmotor = wpilib.Jaguar(1,3)
 rmotor = wpilib.Jaguar(1,2)
+rmotor2 = wpilib.Jaguar(1,1)
 #roboDR = wpilib.RobotDrive(lmotor,rmotor)
 # victors 4 and 1 are burnt
 
